@@ -5,45 +5,45 @@ import '../styles/Carousel.css';
 const INITIAL_ITEMS = [
   {
     id: 1,
-    title: '"Lossless Youths"',
+    title: '"Innovative Solutions"',
     description:
-      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore fuga voluptatum, iure corporis inventore praesentium nisi. Id laboriosam ipsam enim.',
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7fjDyzpcVSHyO4GMTfMDMOvaeALc4qI_OJg&s',
+      'Transform your business with cutting-edge technology and expert guidance. We deliver results that matter.',
+    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop',
   },
   {
     id: 2,
-    title: '"Estrange Bond"',
+    title: '"Digital Excellence"',
     description:
-      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore fuga voluptatum, iure corporis inventore praesentium nisi. Id laboriosam ipsam enim.',
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZkObc2RFbosrBgArPF0WaUXMsumj7YKb2vQ&s',
+      'Partner with us for comprehensive IT consultancy and strategic planning. Your success is our mission.',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop',
   },
   {
     id: 3,
-    title: '"The Gate Keeper"',
+    title: '"Future Ready"',
     description:
-      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore fuga voluptatum, iure corporis inventore praesentium nisi. Id laboriosam ipsam enim.',
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkVsqZ0-q4-mMxTflamhHqoTKFizuNhQpXt5wHYlkIJLblbZ6nqtPuh2CWnUaD7zLwCyU&usqp=CAU',
+      'Stay ahead with emerging technologies and best practices. We ensure your organization thrives tomorrow.',
+    image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=600&fit=crop',
   },
   {
     id: 4,
-    title: '"Last Trace Of Us"',
+    title: '"Strategic Growth"',
     description:
-      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore fuga voluptatum, iure corporis inventore praesentium nisi. Id laboriosam ipsam enim.',
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSF4idU93JXoZxdYxsU-IT_uiYYftv5m9_AEtjZN2AKbH8GStxv8vEoc225Bm9W7ztHgFY&usqp=CAU',
+      'Accelerate your digital transformation journey with proven methodologies and experienced professionals.',
+    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop',
   },
   {
     id: 5,
-    title: '"Urban Decay"',
+    title: '"Cloud Mastery"',
     description:
-      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore fuga voluptatum, iure corporis inventore praesentium nisi. Id laboriosam ipsam enim.',
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQn1PMi23l_V_pVbnVqSpA5mEVYkkdcSnws2A&s',
+      'Optimize your infrastructure and leverage cloud technologies for maximum efficiency and scalability.',
+    image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&h=600&fit=crop',
   },
   {
     id: 6,
-    title: '"The Migration"',
+    title: '"Enterprise Solutions"',
     description:
-      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore fuga voluptatum, iure corporis inventore praesentium nisi. Id laboriosam ipsam enim.',
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRD_GIzA9kjeEhfGJAZGQPFqXLXRgvpzrv0kA&s',
+      'Enterprise-grade solutions designed to meet your complex requirements and drive measurable business results.',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop',
   },
 ];
 
@@ -69,19 +69,22 @@ export default function Carousel() {
   };
 
   useEffect(() => {
-    const interval = setInterval(next, 3500);
+    const interval = setInterval(next, 4000);
     return () => clearInterval(interval);
   }, []);
 
   return (
     <div className="carousel-main">
-      <ul className="slider">
+      <ul>
         {items.map((item, idx) => (
           <li
             className="item"
             key={item.id}
             style={{ backgroundImage: `url('${item.image}')` }}
           >
+            {/* Fallback colored background while image loads */}
+            <div className="item-fallback"></div>
+            
             <div className="content">
               <h2 className="title">{item.title}</h2>
               <p className="description">{item.description}</p>

@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/Navbar.css';
-
+import { FiSearch } from "react-icons/fi";
 const Navbar = () => {
   const [activeMenu, setActiveMenu] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
 
-  
+
 
   return (
     <nav className="navbar">
@@ -49,13 +49,13 @@ const Navbar = () => {
           <Link to="/services">Services</Link>
           <ul className={`submenu ${activeMenu === 'services' ? 'active' : ''}`}>
             <li>
-              <Link to="/services">Cloud Consulting</Link>
+              <Link to="/services/admissions">Admissions</Link>
             </li>
             <li>
-              <Link to="/services">Digital Transformation</Link>
+              <Link to="/services/counselling">Counselling</Link>
             </li>
             <li>
-              <Link to="/services">Custom Development</Link>
+              <Link to="/services/freelance">Freelance</Link>
             </li>
           </ul>
         </li>
@@ -67,7 +67,7 @@ const Navbar = () => {
       <div className="navbar-center">
         <div className="search">
           <button className="search-icon" aria-label="Search">
-            🔍
+            <FiSearch size={20} />
           </button>
           <input
             type="search"

@@ -81,7 +81,7 @@ const Services = () => {
                 </ul>
 
                 <Link to={`/services/${service.id}`} className="service-more-btn">
-                  🔘 MORE
+                  MORE
                 </Link>
               </div>
             </div>

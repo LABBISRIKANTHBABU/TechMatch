@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Carousel from '../components/Carousel';
+import ClientSlider from '../components/ClientSlider';
 import '../styles/Pages.css';
 
 const Home = () => {
@@ -8,6 +9,9 @@ const Home = () => {
     <div className="page-container home-page">
       {/* Carousel placed first */}
       <Carousel />
+
+      {/* Client Slider */}
+      <ClientSlider />
  
       {/* Hero Section */}
       <section className="hero-section">

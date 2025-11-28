@@ -16,7 +16,7 @@ const SignIn = () => {
   const handleGoogle = async () => {
     try {
       await signInWithGoogle();
-      navigate('/');
+      navigate('/dashboard');
     } catch (err) {
       setError(err.message || String(err));
     }
@@ -26,7 +26,7 @@ const SignIn = () => {
     e.preventDefault();
     try {
       await signinWithEmail(email, password);
-      navigate('/');
+      navigate('/dashboard');
     } catch (err) {
       setError(err.message || String(err));
     }
@@ -112,7 +112,14 @@ const SignIn = () => {
                     <input value={otpCode} onChange={(e) => setOtpCode(e.target.value)} />
                   </div>
                   <div className="auth-actions">
-                    <button className="submit-button" onClick={handleConfirmOtp}>Confirm OTP</button>
+                    <button className="submit-button" onClick={async () => {
+                      try {
+                        await handleConfirmOtp();
+                        navigate('/dashboard');
+                      } catch (err) {
+                        // error already set in handleConfirmOtp
+                      }
+                    }}>Confirm OTP</button>
                   </div>
                 </>
               )}

@@ -12,7 +12,7 @@ const Footer = () => {
             <h3>TechMatch</h3>
             <p>Your partner in digital transformation and IT consultancy solutions.</p>
             <div className="social-links">
-              <a href="https://www.linkedin.com/company/techmatch" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <a href="https://www.linkedin.com/in/tech-match-073a99392/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                 <span>in</span>
               </a>
               <a href="https://twitter.com/techmatch" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
@@ -21,7 +21,7 @@ const Footer = () => {
               <a href="https://github.com/techmatch" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                 <span>⚙️</span>
               </a>
-              <a href="mailto:info@techmatch.com" aria-label="Email">
+              <a href="mailto:techmatch2k25@gmail.com" aria-label="Email">
                 <span>✉️</span>
               </a>
             </div>
@@ -67,7 +67,7 @@ const Footer = () => {
             <h4>Contact Info</h4>
             <ul>
               <li>
-                <a href="mailto:info@techmatch.com">info@techmatch.com</a>
+                <a href="mailto:techmatch2k25@gmail.com">techmatch2k25@gmail.com</a>
               </li>
               <li>
                 <a href="tel:+18008324825">+1 (800) TECH-MATCH</a>

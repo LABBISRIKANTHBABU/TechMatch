@@ -19,7 +19,7 @@ const Home = () => {
           <h1 className="hero-title">Digital Transformation Starts Here</h1>
           <p className="hero-subtitle">Partner with TechMatch for cutting-edge IT consultancy solutions</p>
           <div className="hero-buttons">
-            <Link to="/contact" className="cta-button primary">
+            <Link to="/signin" className="cta-button primary">
               Get Started
             </Link>
             <Link to="/services" className="cta-button secondary">

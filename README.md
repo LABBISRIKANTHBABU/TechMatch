@@ -173,7 +173,7 @@ Update the video source in `src/components/IntroVideo.js`:
 
 ## Contact
 
-For inquiries: info@techmatch.com  
+For inquiries: techmatch2k25@gmail.com  
 Phone: +1 (800) TECH-MATCH
 
 ---

@@ -14,6 +14,7 @@ const Contact = () => {
 
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
 
   const validateForm = () => {
     const newErrors = {};
@@ -41,26 +42,48 @@ const Contact = () => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const newErrors = validateForm();
 
     if (Object.keys(newErrors).length === 0) {
-      // Form is valid - here you would send data to backend
-      console.log('Form submitted:', formData);
-      setSubmitted(true);
-      setTimeout(() => {
-        setSubmitted(false);
-        setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          company: '',
-          subject: '',
-          message: '',
-          service: 'general',
+      // Form is valid - send email via EmailJS
+      setIsLoading(true);
+      setErrors({});
+
+      // Using Formspree (no additional package required).
+      // Set REACT_APP_FORMSPREE_ENDPOINT in .env.local to your Formspree form endpoint (e.g. https://formspree.io/f/xyzabcd)
+      const FORMSPREE_ENDPOINT = process.env.REACT_APP_FORMSPREE_ENDPOINT || 'https://formspree.io/f/your_form_id';
+
+      setIsLoading(true);
+      setErrors({});
+
+      try {
+        const resp = await fetch(FORMSPREE_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            phone: formData.phone || 'Not provided',
+            company: formData.company || 'Not provided',
+            subject: formData.subject,
+            service: formData.service,
+            message: formData.message,
+          }),
         });
-      }, 3000);
+
+        if (!resp.ok) throw new Error('Failed to send message');
+
+        setSubmitted(true);
+        setFormData({ name: '', email: '', phone: '', company: '', subject: '', message: '', service: 'general' });
+        setTimeout(() => setSubmitted(false), 5000);
+      } catch (err) {
+        console.error('Formspree error:', err);
+        setErrors({ submit: 'Failed to send your message. Please try again later.' });
+      } finally {
+        setIsLoading(false);
+      }
     } else {
       setErrors(newErrors);
     }
@@ -106,10 +129,10 @@ const Contact = () => {
                 <div className="contact-text">
                   <h4>Email</h4>
                   <p>
-                    <a href="mailto:info@techmatch.com">info@techmatch.com</a>
+                    <a href="mailto:techmatch2k25@gmail.com">techmatch2k25@gmail.com</a>
                   </p>
                   <p>
-                    <a href="mailto:sales@techmatch.com">sales@techmatch.com</a>
+                    <a href="mailto:techmatch2k25@gmail.com">techmatch2k25@gmail.com</a>
                   </p>
                 </div>
               </div>
@@ -140,7 +163,12 @@ const Contact = () => {
           <form className="contact-form" onSubmit={handleSubmit} noValidate>
             {submitted && (
               <div className="success-message">
-                ✓ Thank you! Your message has been received. We'll be in touch soon.
+                ✓ Thank you! Your message has been received at {formData.email}. We'll be in touch soon.
+              </div>
+            )}
+            {errors.submit && (
+              <div className="error-message-box">
+                {errors.submit}
               </div>
             )}
 
@@ -238,7 +266,7 @@ const Contact = () => {
             </div>
 
             <button type="submit" className="submit-button">
-              Send Message
+              {isLoading ? 'Sending...' : 'Send Message'}
             </button>
 
             <p className="form-note">

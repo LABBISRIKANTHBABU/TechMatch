@@ -10,48 +10,77 @@ const SignUp = () => {
   const [password, setPassword] = useState('');
   const [phone, setPhone] = useState('');
   const [otpCode, setOtpCode] = useState('');
+  const [acceptedTOS, setAcceptedTOS] = useState(false);
   const [confirmationResult, setConfirmationResult] = useState(null);
   const [error, setError] = useState(null);
+  const [successMessage, setSuccessMessage] = useState('');
   const [method, setMethod] = useState('email'); // 'email' or 'phone'
+  const [loading, setLoading] = useState(false);
 
   const handleGoogle = async () => {
+    setLoading(true);
     try {
       await signInWithGoogle();
-      navigate('/');
+      navigate('/dashboard');
     } catch (err) {
       setError(err.message || String(err));
+    } finally {
+      setLoading(false);
     }
   };
 
   const handleEmailSignup = async (e) => {
     e.preventDefault();
+    if (!acceptedTOS) {
+      setError('You must accept the Terms of Service to sign up');
+      return;
+    }
+    if (password.length < 6) {
+      setError('Password must be at least 6 characters');
+      return;
+    }
+    setLoading(true);
     try {
-      await signupWithEmail(email, password);
-      // Optionally, you can save the displayName in Firestore later
-      navigate('/');
+      await signupWithEmail(email, password, displayName, { 
+        requireEmailVerification: true, 
+        role: 'student', 
+        acceptedTOS: true 
+      });
+      setSuccessMessage('Account created! Redirecting to dashboard...');
+      setTimeout(() => navigate('/dashboard'), 2000);
     } catch (err) {
       setError(err.message || String(err));
+    } finally {
+      setLoading(false);
     }
   };
 
+
   const handleSendOtp = async () => {
+    setLoading(true);
     try {
       setupRecaptcha('recaptcha-container');
-      const res = await sendPhoneOtp(phone);
+      const res = await sendPhoneOtp(phone, 'recaptcha-container');
       setConfirmationResult(res);
       setError(null);
     } catch (err) {
       setError(err.message || String(err));
+    } finally {
+      setLoading(false);
     }
   };
 
   const handleConfirmOtp = async () => {
+    setLoading(true);
     try {
       if (!confirmationResult) throw new Error('No OTP request found');
       await confirmPhoneOtp(confirmationResult, otpCode);
-      navigate('/');
+      setSuccessMessage('Phone verified! Redirecting to dashboard...');
+      setTimeout(() => navigate('/dashboard'), 2000);
     } catch (err) {
       setError(err.message || String(err));
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -84,18 +113,55 @@ const SignUp = () => {
             <form className="auth-form" onSubmit={handleEmailSignup}>
               <div className="form-group">
                 <label>Full name</label>
-                <input required value={displayName} onChange={(e) => setDisplayName(e.target.value)} />
+                <input 
+                  required 
+                  value={displayName} 
+                  onChange={(e) => setDisplayName(e.target.value)}
+                  disabled={loading}
+                />
               </div>
               <div className="form-group">
                 <label>Email</label>
-                <input required type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                <input 
+                  required 
+                  type="email" 
+                  value={email} 
+                  onChange={(e) => setEmail(e.target.value)}
+                  disabled={loading}
+                />
               </div>
               <div className="form-group">
-                <label>Password</label>
-                <input required type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                <label>Password (min 6 characters)</label>
+                <input 
+                  required 
+                  type="password" 
+                  value={password} 
+                  onChange={(e) => setPassword(e.target.value)}
+                  minLength={6}
+                  disabled={loading}
+                />
+              </div>
+              <div className="form-group" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <input 
+                  type="checkbox" 
+                  id="tos-checkbox"
+                  checked={acceptedTOS} 
+                  onChange={(e) => setAcceptedTOS(e.target.checked)}
+                  disabled={loading}
+                  style={{ width: 'auto', cursor: 'pointer' }}
+                />
+                <label htmlFor="tos-checkbox" style={{ margin: 0, cursor: 'pointer', fontSize: '0.9rem' }}>
+                  I accept the <Link to="/terms" target="_blank">Terms of Service</Link> and <Link to="/privacy" target="_blank">Privacy Policy</Link>
+                </label>
               </div>
               <div className="auth-actions">
-                <button className="submit-button" type="submit">Create account</button>
+                <button 
+                  className="submit-button" 
+                  type="submit"
+                  disabled={loading}
+                >
+                  {loading ? 'Creating account...' : 'Create account'}
+                </button>
                 <Link to="/signin" className="small-text">Already have an account?</Link>
               </div>
             </form>
@@ -104,30 +170,82 @@ const SignUp = () => {
           {method === 'phone' && (
             <div className="auth-form">
               <div className="form-group">
-                <label>Phone (include country code)</label>
-                <input value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="+1..." />
+                <label>Phone (include country code, e.g., +1234567890)</label>
+                <input 
+                  value={phone} 
+                  onChange={(e) => setPhone(e.target.value)} 
+                  placeholder="+1..."
+                  disabled={loading || !!confirmationResult}
+                />
               </div>
               <div id="recaptcha-container"></div>
               <div className="auth-actions">
-                <button className="submit-button" onClick={handleSendOtp}>Send OTP</button>
+                <button 
+                  className="submit-button" 
+                  onClick={handleSendOtp}
+                  disabled={loading || !!confirmationResult}
+                >
+                  {loading ? 'Sending...' : 'Send OTP'}
+                </button>
                 <Link to="/signin" className="small-text">Use email instead</Link>
               </div>
 
               {confirmationResult && (
                 <>
                   <div className="form-group">
-                    <label>Enter OTP</label>
-                    <input value={otpCode} onChange={(e) => setOtpCode(e.target.value)} />
+                    <label>Enter OTP sent to your phone</label>
+                    <input 
+                      value={otpCode} 
+                      onChange={(e) => setOtpCode(e.target.value)} 
+                      placeholder="000000"
+                      disabled={loading}
+                    />
                   </div>
                   <div className="auth-actions">
-                    <button className="submit-button" onClick={handleConfirmOtp}>Confirm OTP</button>
+                    <button 
+                      className="submit-button" 
+                      onClick={handleConfirmOtp}
+                      disabled={loading}
+                    >
+                      {loading ? 'Verifying...' : 'Confirm OTP'}
+                    </button>
                   </div>
                 </>
               )}
             </div>
           )}
 
-          {error && <div className="error-message">{error}</div>}
+          {error && (
+            <div 
+              className="error-message" 
+              style={{ 
+                padding: '0.8rem', 
+                marginTop: '1rem', 
+                backgroundColor: '#fee', 
+                color: '#c33', 
+                borderRadius: '4px',
+                fontSize: '0.9rem'
+              }}
+            >
+              {error}
+            </div>
+          )}
+
+          {successMessage && (
+            <div 
+              className="success-message"
+              style={{ 
+                padding: '0.8rem', 
+                marginTop: '1rem', 
+                backgroundColor: '#efe', 
+                color: '#3c3', 
+                borderRadius: '4px',
+                fontSize: '0.9rem'
+              }}
+            >
+              {successMessage}
+            </div>
+          )}
         </div>
       </div>
     </div>

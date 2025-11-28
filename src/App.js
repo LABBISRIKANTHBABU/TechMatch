@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { AuthProvider } from './context/AuthContext';
 import IntroVideo from './components/IntroVideo';
 import HexagonCanvas from './components/HexagonCanvas';
 import Navbar from './components/Navbar';
@@ -8,10 +9,12 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Services from './pages/Services';
 import ServiceDetails from './pages/ServiceDetails';
+import Testimonials from './pages/Testimonials';
 import Clients from './pages/Clients';
 import Contact from './pages/Contact';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
+import Dashboard from './pages/Dashboard';
 import './styles/App.css';
 
 function App() {
@@ -40,31 +43,35 @@ function App() {
   };
 
   return (
-    <Router>
-      <div className={`app ${appReady ? 'ready' : ''}`}>
-        <HexagonCanvas />
-        {showIntro ? (
-          <IntroVideo onTransitionComplete={handleIntroComplete} />
-        ) : (
-          <>
-            <Navbar />
-            <main className="main-content-wrapper">
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/services" element={<Services />} />
-                <Route path="/services/:serviceId" element={<ServiceDetails />} />
-                <Route path="/clients" element={<Clients />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/signin" element={<SignIn />} />
-                <Route path="/signup" element={<SignUp />} />
-              </Routes>
-            </main>
-            <Footer />
-          </>
-        )}
-      </div>
-    </Router>
+    <AuthProvider>
+      <Router>
+        <div className={`app ${appReady ? 'ready' : ''}`}>
+          <HexagonCanvas />
+          {showIntro ? (
+            <IntroVideo onTransitionComplete={handleIntroComplete} />
+          ) : (
+            <>
+              <Navbar />
+              <main className="main-content-wrapper">
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/about" element={<About />} />
+                  <Route path="/services" element={<Services />} />
+                  <Route path="/services/:serviceId" element={<ServiceDetails />} />
+                  <Route path="/testimonials" element={<Testimonials />} />
+                  <Route path="/clients" element={<Clients />} />
+                  <Route path="/contact" element={<Contact />} />
+                  <Route path="/signin" element={<SignIn />} />
+                  <Route path="/signup" element={<SignUp />} />
+                  <Route path="/dashboard" element={<Dashboard />} />
+                </Routes>
+              </main>
+              <Footer />
+            </>
+          )}
+        </div>
+      </Router>
+    </AuthProvider>
   );
 }
 

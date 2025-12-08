@@ -40,7 +40,7 @@
 
 .hero-tagline {
   font-size: 1.3rem;
-  color: var(--text-light);
+  color: rgb(209, 205, 205);
   font-style: italic;
   margin: 0;
 }
@@ -75,7 +75,7 @@
   background: none;
   border: none;
   border-bottom: 3px solid transparent;
-  color: var(--text-light);
+  color: rgb(209, 205, 205);
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
@@ -132,7 +132,7 @@
 .overview-description {
   font-size: 1.05rem;
   line-height: 1.8;
-  color: var(--text-light);
+  color: rgb(209, 205, 205);
 }
 
 .overview-image {
@@ -194,7 +194,7 @@
 }
 
 .stat-label {
-  color: var(--text-light);
+  color: rgb(209, 205, 205);
   font-size: 0.9rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -245,7 +245,7 @@
   margin-bottom: 1.5rem;
   font-size: 0.95rem;
   line-height: 1.7;
-  color: var(--text-light);
+  color: rgb(209, 205, 205);
 }
 
 .benefits-list {

@@ -25,7 +25,7 @@
 
 .client-slider-header p {
   font-size: 1rem;
-  color: var(--text-light);
+  color: rgb(209, 205, 205);
   line-height: 1.6;
   margin: 0;
 }

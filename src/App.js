@@ -11,7 +11,7 @@ import About from './pages/About';
 import Services from './pages/Services';
 import ServiceDetails from './pages/ServiceDetails';
 import Testimonials from './pages/Testimonials';
-import Clients from './pages/Clients';
+
 import Contact from './pages/Contact';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
@@ -61,7 +61,7 @@ function App() {
                   <Route path="/services" element={<Services />} />
                   <Route path="/services/:serviceId" element={<ServiceDetails />} />
                   <Route path="/testimonials" element={<Testimonials />} />
-                  <Route path="/clients" element={<Clients />} />
+                  
                   <Route path="/contact" element={<Contact />} />
                   <Route path="/signin" element={<SignIn />} />
                   <Route path="/signup" element={<SignUp />} />

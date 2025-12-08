@@ -44,7 +44,7 @@
 .section-intro {
   font-size: 1.1rem;
   text-align: center;
-  color: var(--text-light);
+  color: rgb(209, 205, 205);
   margin-bottom: 2rem;
   max-width: 700px;
 }
@@ -330,7 +330,7 @@
 }
 
 .content-block p {
-  color: var(--text-light);
+  color: rgb(209, 205, 205);
   line-height: 1.8;
   margin-bottom: 1rem;
 }
@@ -381,7 +381,7 @@
   margin-left: 30PX;
 }
 .aboutus-text {
-  color: var(--text-light);
+  color: rgb(209, 205, 205);
   font-size: 16px;
   line-height: 1.8;
   margin-bottom: 1.25rem;
@@ -439,7 +439,7 @@
 }
 .aboutus-right .feature-content p {
   margin: 0;
-  color: var(--text-light);
+  color: rgb(209, 205, 205);
   font-size: 0.92rem;
 }
 
@@ -469,7 +469,7 @@
 }
 .about-hero-text .lead {
   font-size: 1.05rem;
-  color: var(--text-light);
+  color: rgb(209, 205, 205);
   line-height: 1.7;
   max-width: 60ch;
 }
@@ -488,7 +488,7 @@
   margin: 0 auto 1.5rem;
 }
 .about-text h2 { color: var(--secondary-orange); margin-bottom: 0.5rem; }
-.about-text p { color: var(--text-light); line-height: 1.8; }
+.about-text p { color: rgb(209, 205, 205); line-height: 1.8; }
 .about-quick-stats { display:flex; flex-direction:column; gap:1rem; }
 .about-quick-stats .stat { background: rgba(255,112,41,0.04); padding: 1rem; border-radius:8px; text-align:center; }
 .stat-number { font-size:1.5rem; font-weight:700; color:var(--secondary-orange); }
@@ -539,7 +539,7 @@
 
 /* Small polish for headings and spacing */
 .about-hero-text h1, .about-hero-text h2, .team-section h2 { letter-spacing: 0.02em; }
-.section-intro { max-width: 780px; margin: 0.5rem auto 1rem; color: var(--text-light); }
+.section-intro { max-width: 780px; margin: 0.5rem auto 1rem; color: rgb(209, 205, 205); }
 
 /* Values Section */
 .values-section {
@@ -589,7 +589,7 @@
 }
 
 .value-card p {
-  color: var(--text-light);
+  color: rgb(209, 205, 205);
   font-size: 0.9rem;
 }
 
@@ -615,7 +615,7 @@
 
 .checklist li {
   padding: 1rem;
-  color: var(--text-light);
+  color: rgb(209, 205, 205);
   border-bottom: 1px solid rgba(255, 112, 41, 0.2);
   display: flex;
   align-items: center;
@@ -818,7 +818,7 @@
 
 .process-step p {
   font-size: 0.9rem;
-  color: var(--text-light);
+  color: rgb(209, 205, 205);
 }
 
 .process-arrow {
@@ -864,7 +864,7 @@
 
 .client-category li {
   padding: 0.75rem 0;
-  color: var(--text-light);
+  color: rgb(209, 205, 205);
   border-bottom: 1px solid rgba(255, 112, 41, 0.1);
   display: flex;
   align-items: center;
@@ -907,7 +907,7 @@
 }
 
 .client-stats p {
-  color: var(--text-light);
+  color: rgb(209, 205, 205);
   font-size: 0.9rem;
 }
 
@@ -983,7 +983,7 @@
 }
 
 .company-name {
-  color: var(--text-light);
+  color: rgb(209, 205, 205);
   font-size: 0.85rem;
   font-style: italic;
 }
@@ -1014,7 +1014,7 @@
 .challenge p,
 .solution p,
 .result p {
-  color: var(--text-light);
+  color: rgb(209, 205, 205);
   font-size: 0.85rem;
   line-height: 1.5;
   margin: 0;
@@ -1068,7 +1068,7 @@
 
 .testimonial-text {
   font-size: 0.95rem;
-  color: var(--text-light);
+  color: rgb(209, 205, 205);
   font-style: italic;
   margin-bottom: 1.5rem;
   line-height: 1.7;
@@ -1086,7 +1086,7 @@
 }
 
 .testimonial-author span {
-  color: var(--text-light);
+  color: rgb(209, 205, 205);
   font-size: 0.85rem;
 }
 
@@ -1112,7 +1112,7 @@
 }
 
 .contact-info p {
-  color: var(--text-light);
+  color: rgb(209, 205, 205);
   margin-bottom: 2rem;
   line-height: 1.6;
 }
@@ -1142,7 +1142,7 @@
 }
 
 .contact-text p {
-  color: var(--text-light);
+  color: rgb(209, 205, 205);
   font-size: 0.9rem;
   margin: 0.15rem 0;
 }
@@ -1195,7 +1195,7 @@
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 112, 41, 0.3);
   border-radius: 4px;
-  color: var(--text-light);
+  color: rgb(209, 205, 205);
   font-family: inherit;
   font-size: 0.95rem;
   transition: all 0.3s ease;
@@ -1277,7 +1277,7 @@
 
 .form-note {
   font-size: 0.8rem;
-  color: var(--text-light);
+  color: rgb(209, 205, 205);
   text-align: center;
   margin-top: 1rem;
 }

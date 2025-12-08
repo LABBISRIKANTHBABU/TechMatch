@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { FiMessageCircle } from 'react-icons/fi';
 import { openWhatsApp } from '../config/contactConfig';
 import '../styles/WhatsAppButton.css';
 
@@ -26,7 +25,11 @@ const WhatsAppButton = () => {
       }}
     >
       <div className={`whatsapp-icon-wrapper ${isHovered ? 'hovered' : ''}`}>
-        <FiMessageCircle size={28} className="whatsapp-icon" />
+        <img 
+          src="/assets/whatsapp.png" 
+          alt="WhatsApp" 
+          className="whatsapp-icon" 
+        />
       </div>
       {isHovered && (
         <div className="whatsapp-tooltip">

@@ -34,7 +34,7 @@
 }
 
 .footer-section p {
-  color: var(--text-light);
+  color:  rgb(209, 205, 205);
   line-height: 1.6;
   margin-bottom: 1.5rem;
 }
@@ -54,7 +54,7 @@
 }
 
 .footer-section a {
-  color: var(--text-light);
+  color:  rgb(209, 205, 205);
   text-decoration: none;
   transition: all 0.3s ease;
   font-size: 0.9rem;
@@ -104,7 +104,7 @@
 }
 
 .footer-bottom p {
-  color: var(--text-light);
+  color:  rgb(209, 205, 205);
   font-size: 0.85rem;
   margin: 0;
 }

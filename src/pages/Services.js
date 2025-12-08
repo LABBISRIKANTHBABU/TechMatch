@@ -88,35 +88,7 @@ const Services = () => {
           ))}
         </div>
 
-        {/* Service Process Section */}
-        <div className="service-process">
-          <h2>Our Service Delivery Process</h2>
-          <div className="process-steps">
-            <div className="process-step">
-              <div className="step-number">1</div>
-              <h4>Discovery & Assessment</h4>
-              <p>Understanding your goals and current situation</p>
-            </div>
-            <div className="process-arrow">→</div>
-            <div className="process-step">
-              <div className="step-number">2</div>
-              <h4>Strategy Development</h4>
-              <p>Creating a personalized roadmap for success</p>
-            </div>
-            <div className="process-arrow">→</div>
-            <div className="process-step">
-              <div className="step-number">3</div>
-              <h4>Implementation</h4>
-              <p>Executing the plan with regular support</p>
-            </div>
-            <div className="process-arrow">→</div>
-            <div className="process-step">
-              <div className="step-number">4</div>
-              <h4>Success & Growth</h4>
-              <p>Continuous guidance and optimization</p>
-            </div>
-          </div>
-        </div>
+        
       </section>
     </div>
   );

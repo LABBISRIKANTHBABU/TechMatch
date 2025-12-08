@@ -642,8 +642,8 @@
 
 .service-card {
   padding: 2.5rem 2rem;
-  background: linear-gradient(13deg, rgba(255, 112, 41, 0.1), rgba(255, 164, 98, 0.05));
-  border: 1px solid rgba(239, 105, 38, 0.2);
+  background: linear-gradient(rgba(150, 115, 99, 0.29));
+  border: 1px solid rgba(126, 66, 36, 0.827);
   border-radius: 8px;
   text-align: center;
   transition: all 0.3s ease;
@@ -651,13 +651,12 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  
 }
 
 .service-card:hover {
   transform: translateY(-10px);
   border-color: rgba(255, 112, 41, 0.5);
-  box-shadow: 0 20px 40px rgba(225, 5, 20, 0.3);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
 .service-header {
@@ -1056,7 +1055,7 @@
 
 .testimonial-card {
   padding: 2rem;
-  background: rgba(255, 112, 41, 0.08);
+  background: rgba(163, 74, 29, 0.31);
   border-left: 4px solid var(--secondary-orange);
   border-radius: 4px;
   transition: all 0.3s ease;

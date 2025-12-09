@@ -1253,6 +1253,198 @@
   transform: translateY(0);
 }
 
+/* ========== BOOKING PAGE ========== */
+.booking-page {
+  padding: 3rem 1rem 4rem;
+  min-height: 100vh;
+  background: linear-gradient(180deg, rgba(8, 8, 8, 0.82), rgba(12, 12, 12, 0.9));
+  position: relative;
+}
+
+.booking-hero {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 2rem;
+  align-items: center;
+  padding: 0 0 2rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 3;
+}
+
+.booking-hero-copy h1 {
+  color: var(--secondary-orange);
+  font-size: clamp(2.4rem, 5vw, 3.2rem);
+  margin: 0.4rem 0 1rem;
+}
+
+.booking-hero .hero-lead {
+  color: rgb(230, 230, 230);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+  max-width: 620px;
+}
+
+.booking-hero .eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--secondary-orange);
+  font-weight: 700;
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+.hero-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+.hero-pills span {
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 112, 41, 0.35);
+  color: rgb(230, 230, 230);
+  font-size: 0.85rem;
+  background: rgba(255, 112, 41, 0.1);
+}
+
+.booking-hero-card {
+  background: linear-gradient(145deg, rgba(255, 112, 41, 0.12), rgba(255, 164, 98, 0.1));
+  border: 1px solid rgba(255, 112, 41, 0.35);
+  border-radius: 16px;
+  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.32);
+  overflow: hidden;
+  position: relative;
+  z-index: 3;
+}
+
+.booking-hero-card .card-header {
+  display: flex;
+  gap: 0.4rem;
+  padding: 0.6rem 0.9rem;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.booking-hero-card .dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.booking-hero-card .dot.green { background: #2ecc71; }
+.booking-hero-card .dot.amber { background: #f1c40f; }
+.booking-hero-card .dot.red { background: #e74c3c; }
+
+.booking-hero-card .card-body {
+  padding: 1.5rem 1.75rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.booking-hero-card h3 {
+  margin: 0;
+  color: var(--secondary-orange);
+}
+
+.booking-hero-card ul {
+  margin: 0 0 0.5rem 1.2rem;
+  color: rgb(230, 230, 230);
+  line-height: 1.5;
+}
+
+.booking-section {
+  width: 100%;
+  position: relative;
+  z-index: 3;
+}
+
+.booking-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.05fr;
+  gap: 2.5rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.booking-info h2 {
+  color: var(--secondary-orange);
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.info-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.info-card {
+  display: flex;
+  gap: 0.9rem;
+  padding: 1rem 1.1rem;
+  background: rgba(255, 112, 41, 0.08);
+  border: 1px solid rgba(255, 112, 41, 0.18);
+  border-radius: 10px;
+  align-items: flex-start;
+  color: rgb(230, 230, 230);
+}
+
+.info-icon {
+  font-size: 1.4rem;
+}
+
+.info-card h4 {
+  margin: 0 0 0.25rem;
+  color: var(--secondary-orange);
+  font-size: 1rem;
+}
+
+.info-card p {
+  margin: 0;
+  color: rgb(230, 230, 230);
+  font-size: 0.92rem;
+}
+
+.booking-form {
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.28);
+  background: rgba(20, 20, 20, 0.9);
+  backdrop-filter: blur(10px);
+}
+
+.booking-form .submit-button {
+  width: 100%;
+}
+
+.booking-form .form-row {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+@media (max-width: 1024px) {
+  .booking-hero {
+    grid-template-columns: 1fr;
+    padding-bottom: 2rem;
+  }
+
+  .booking-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .booking-hero-copy h1 {
+    font-size: 2rem;
+  }
+}
+
 .success-message {
   padding: 1rem;
   background: rgba(76, 175, 80, 0.2);
@@ -1262,6 +1454,8 @@
   text-align: center;
   font-weight: 600;
   animation: slideDown 0.3s ease;
+}
+
 .error-message-box {
   padding: 1rem;
   background: rgba(255, 107, 107, 0.2);
@@ -1271,8 +1465,6 @@
   text-align: center;
   font-weight: 600;
   animation: slideDown 0.3s ease;
-}
-
 }
 
 .form-note {

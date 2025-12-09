@@ -55,6 +55,9 @@ const Navbar = () => {
           <li>
             <Link to="/" onClick={closeMobileMenu}>Home</Link>
           </li>
+          <li>
+            <Link to="/admissions" onClick={closeMobileMenu}>Admissions</Link>
+          </li>
           <li
             className="nav-item-with-submenu"
             onMouseEnter={() => setActiveMenu('services')}
@@ -63,7 +66,7 @@ const Navbar = () => {
             <Link to="/services">Services</Link>
             <ul className={`submenu ${activeMenu === 'services' ? 'active' : ''}`}>
           <li >
-            <Link to="/services/admissions" onClick={closeMobileMenu}>Admissions</Link>
+            <Link to="/services/admissions" onClick={closeMobileMenu}>Admissions Details</Link>
           </li>
           <li>
             <Link to="/services/counselling" onClick={closeMobileMenu}>Counselling</Link>

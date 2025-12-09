@@ -1,0 +1,422 @@
+/* ========== ADMISSIONS PAGE ========== */
+
+.admissions-page {
+  position: relative;
+  z-index: 2;
+  min-height: 100vh;
+  opacity: 0;
+  animation: fadeIn 0.8s ease-out 0.5s forwards;
+  overflow-y: auto;
+  padding: 0;
+}
+
+/* Hero Section */
+.admissions-hero {
+  background: linear-gradient(135deg, rgba(42, 40, 40, 0.95) 0%, rgba(60, 58, 58, 0.95) 100%);
+  padding: 6rem 2rem;
+  text-align: center;
+  border-bottom: 3px solid var(--secondary-orange);
+  margin-bottom: 4rem;
+}
+
+.admissions-title {
+  font-size: clamp(2rem, 7vw, 3.5rem);
+  color: var(--secondary-orange);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-weight: 700;
+  text-shadow: 0 2px 10px rgba(255, 112, 41, 0.3);
+}
+
+.admissions-subtitle {
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  color: rgb(209, 205, 205);
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Content Section */
+.admissions-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Filter Container */
+.filter-container {
+  width: 100%;
+  margin-bottom: 3rem;
+  display: flex;
+  justify-content: center;
+}
+
+.filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  max-width: 1200px;
+}
+
+.filter-btn {
+  padding: 0.75rem 1.5rem;
+  border: 2px solid var(--secondary-orange);
+  background: transparent;
+  color: var(--secondary-orange);
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+  white-space: nowrap;
+  text-transform: capitalize;
+  letter-spacing: 0.05em;
+}
+
+.filter-btn:hover {
+  background: var(--secondary-orange);
+  color: #2a2828;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 112, 41, 0.3);
+}
+
+.filter-btn.active {
+  background: var(--secondary-orange);
+  color: #2a2828;
+  box-shadow: 0 6px 16px rgba(255, 112, 41, 0.4);
+}
+
+/* Results Info */
+.results-info {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: rgb(209, 205, 205);
+  font-size: 1rem;
+}
+
+/* Colleges Grid */
+.colleges-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+  width: 100%;
+  margin-bottom: 3rem;
+}
+
+/* College Card */
+.college-card {
+  background: linear-gradient(135deg, rgba(60, 58, 58, 0.8) 0%, rgba(45, 43, 43, 0.8) 100%);
+  border: 1px solid rgba(255, 112, 41, 0.2);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.college-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--secondary-orange);
+  box-shadow: 0 12px 30px rgba(255, 112, 41, 0.3);
+}
+
+/* College Image */
+.college-image-wrapper {
+  position: relative;
+  overflow: hidden;
+  height: 220px;
+  background: #2a2828;
+}
+
+.college-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.college-card:hover .college-image {
+  transform: scale(1.08);
+}
+
+.college-category-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: var(--secondary-orange);
+  color: #2a2828;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  letter-spacing: 0.05em;
+}
+
+/* College Content */
+.college-content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-between;
+}
+
+.college-name {
+  font-size: 1.3rem;
+  color: var(--secondary-orange);
+  margin: 0 0 0.75rem 0;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.college-location {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgb(180, 175, 175);
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.location-icon {
+  font-size: 1.1rem;
+}
+
+.college-description {
+  color: rgb(209, 205, 205);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+/* More Info Button */
+.more-info-btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: var(--secondary-orange);
+  color: #2a2828;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 600;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 2px solid var(--secondary-orange);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.85rem;
+}
+
+.more-info-btn:hover {
+  background: transparent;
+  color: var(--secondary-orange);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 112, 41, 0.3);
+}
+
+/* No Results */
+.no-results {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 3rem 2rem;
+  color: rgb(180, 175, 175);
+  font-size: 1.1rem;
+}
+
+/* ========== RESPONSIVE DESIGN ========== */
+
+/* Tablet (768px - 1024px) */
+@media (max-width: 1024px) {
+  .colleges-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .admissions-hero {
+    padding: 4rem 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .admissions-title {
+    font-size: clamp(1.8rem, 6vw, 3rem);
+  }
+
+  .filter-buttons {
+    gap: 0.75rem;
+  }
+
+  .filter-btn {
+    padding: 0.65rem 1.25rem;
+    font-size: 0.9rem;
+  }
+
+  .college-image-wrapper {
+    height: 200px;
+  }
+
+  .college-content {
+    padding: 1.25rem;
+  }
+}
+
+/* Mobile (480px - 768px) */
+@media (max-width: 768px) {
+  .admissions-page {
+    padding: 0;
+  }
+
+  .admissions-hero {
+    padding: 3rem 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .admissions-title {
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+    margin-bottom: 0.75rem;
+  }
+
+  .admissions-subtitle {
+    font-size: 1rem;
+  }
+
+  .admissions-content {
+    padding: 1.5rem;
+  }
+
+  .filter-container {
+    margin-bottom: 2rem;
+  }
+
+  .filter-buttons {
+    gap: 0.6rem;
+  }
+
+  .filter-btn {
+    padding: 0.6rem 1rem;
+    font-size: 0.85rem;
+    border-radius: 25px;
+  }
+
+  .colleges-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .college-image-wrapper {
+    height: 180px;
+  }
+
+  .college-content {
+    padding: 1rem;
+  }
+
+  .college-name {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .college-description {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+
+  .more-info-btn {
+    padding: 0.65rem 1.25rem;
+    font-size: 0.8rem;
+  }
+
+  .results-info {
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+  }
+}
+
+/* Small Mobile (< 480px) */
+@media (max-width: 480px) {
+  .admissions-hero {
+    padding: 2.5rem 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .admissions-title {
+    font-size: 1.5rem;
+    letter-spacing: 0.1em;
+  }
+
+  .admissions-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .admissions-content {
+    padding: 1rem;
+  }
+
+  .filter-buttons {
+    gap: 0.5rem;
+  }
+
+  .filter-btn {
+    padding: 0.5rem 0.9rem;
+    font-size: 0.8rem;
+  }
+
+  .colleges-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .college-image-wrapper {
+    height: 160px;
+  }
+
+  .college-content {
+    padding: 0.9rem;
+  }
+
+  .college-name {
+    font-size: 1rem;
+  }
+
+  .college-description {
+    font-size: 0.85rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .college-category-badge {
+    top: 10px;
+    right: 10px;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.75rem;
+  }
+
+  .more-info-btn {
+    padding: 0.6rem 1rem;
+    font-size: 0.75rem;
+  }
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

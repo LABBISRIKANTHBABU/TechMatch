@@ -11,10 +11,10 @@ export const contactConfig = {
   },
 
   // Email Configuration
-  email: 'contact@techmatch.com', // CHANGE THIS TO YOUR EMAIL
+  email: 'techmatch2k25@gmail', // CHANGE THIS TO YOUR EMAIL
 
   // Phone Configuration
-  phone: '+91-9876543210', // CHANGE THIS TO YOUR PHONE NUMBER
+  phone: '+91-', // CHANGE THIS TO YOUR PHONE NUMBER
 
   // Address Configuration
   address: 'Your Address Here',

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../styles/Pages.css';
 
 const Testimonials = () => {
@@ -115,9 +116,9 @@ const Testimonials = () => {
       <section className="cta-section" style={{ textAlign: 'center' }}>
         <h2>Ready to Be Our Next Success Story?</h2>
         <p>Let's discuss how TechMatch can transform your business</p>
-        <a href="https://techmatch-schudling.lovable.app" target="_blank" rel="noopener noreferrer" className="cta-button large">
+        <Link to="/booking" className="cta-button large">
           Start Your Journey Today
-        </a>
+        </Link>
       </section>
     </div>
   );

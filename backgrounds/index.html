@@ -60,9 +60,33 @@
       }
 
       .intro-video {
-        width: 100%;
-        height: 100%;
+        width: 100vw;
+        height: 100vh;
         object-fit: cover;
+        object-position: center;
+        max-width: 100%;
+        max-height: 100%;
+      }
+
+      /* Responsive: Make intro video fit and visible on mobile */
+      @media (max-width: 600px), (max-height: 600px) {
+        .intro-video-container {
+          align-items: flex-start;
+        }
+        .intro-video {
+          width: 100vw;
+          height: 100vh;
+          max-width: 100vw;
+          max-height: 100vh;
+          object-fit: contain;
+          background: #000;
+        }
+        .skip-intro {
+          top: 1rem;
+          right: 1rem;
+          padding: 0.5rem 1rem;
+          font-size: 0.85rem;
+        }
       }
 
       /* Skip Button (Optional) */

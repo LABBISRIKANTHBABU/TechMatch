@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import '../styles/ServiceDetails.css';
 
 const ServiceDetails = () => {
@@ -237,9 +237,9 @@ const ServiceDetails = () => {
           <span className="hero-icon">{service.icon}</span>
           <h1 style={{ color: service.color }}>{service.title}</h1>
           <p className="hero-tagline">{service.tagline}</p>
-          <a href="https://techmatch-schudling.lovable.app"  rel="noopener noreferrer" className="cta-button">
+          <Link to="/booking" className="cta-button">
             Get Started Today
-          </a>
+          </Link>
         </div>
       </section>
 

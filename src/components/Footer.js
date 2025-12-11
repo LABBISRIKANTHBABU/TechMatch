@@ -71,7 +71,7 @@ const Footer = () => {
                 <a href="tel:+916303319981">R.Yuvaraj +91 63033 19981</a>
               </li>
               <li>
-                <a href="tel:+918309583137">sheikh Arif Nawaz +91 83095 83137</a>
+                <a href="tel:+918309583137">Shaik Arif Nawaz +91 83095 83137</a>
               </li>
               <li>#227, #228, 4th Floor, Skanda Mall, Beside D-MART, Ballari Chowrasta, Kurnool - 518003</li>
             </ul>

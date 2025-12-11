@@ -1,10 +1,14 @@
 
 
-import React, { useMemo, useState } from 'react';
+import React, { useMemo, useState, useRef } from 'react';
 import '../styles/Admissions.css';
 import { colleges } from '../data/collegesData';
+import { IoSearchOutline } from 'react-icons/io5';
 const Admissions = () => {
   const [sectionFilter, setSectionFilter] = useState('All');
+  const [query, setQuery] = useState('');
+  const [searchOpen, setSearchOpen] = useState(false);
+  const searchInputRef = useRef(null);
 
   // Colleges and universities list (complete data from user)
  
@@ -19,21 +23,44 @@ const Admissions = () => {
   ], []);
 
   const filteredColleges = useMemo(() => {
+    let list;
     switch (sectionFilter) {
       case 'Colleges in Bangalore':
-        return colleges.filter(c => c.region === 'Bangalore' && c.category === 'Engineering');
+        list = colleges.filter(c => c.region === 'Bangalore' && c.category === 'Engineering');
+        break;
       case 'Universities in Bangalore':
-        return colleges.filter(c => c.region === 'Bangalore' && c.category === 'University');
+        list = colleges.filter(c => c.region === 'Bangalore' && c.category === 'University');
+        break;
       case 'Universities in Telangana':
-        return colleges.filter(c => (c.region === 'Hyderabad' || c.region === 'Telangana') && c.category === 'University');
+        // Include any college whose region or city indicates Telangana/Hyderabad.
+        // User requested "all list of colleges and universities in telengana" —
+        // include both 'University' and 'Engineering' categories located in Telangana.
+        list = colleges.filter(c => {
+          const region = (c.region || '').toString().toLowerCase();
+          const city = (c.city || '').toString().toLowerCase();
+          const inTelangana = region === 'telangana' || region === 'hyderabad' || city === 'hyderabad';
+          const isRelevantCategory = c.category === 'University' || c.category === 'Engineering';
+          return inTelangana && isRelevantCategory;
+        });
+        break;
       case 'Universities in Chennai':
-        return colleges.filter(c => c.region === 'Chennai' && c.category === 'University');
+        list = colleges.filter(c => c.region === 'Chennai' && c.category === 'University');
+        break;
       case 'North Universities':
-        return colleges.filter(c => ['Jaipur', 'Rajkot', 'Gwalior'].includes(c.region) && c.category === 'University');
+        list = colleges.filter(c => ['Jaipur', 'Rajkot', 'Gwalior'].includes(c.region) && c.category === 'University');
+        break;
       default:
-        return colleges;
+        list = colleges;
     }
-  }, [sectionFilter, colleges]);
+
+    // Apply search query (case-insensitive) if present
+    if (query && query.trim() !== '') {
+      const q = query.trim().toLowerCase();
+      list = list.filter(c => (c.name || '').toLowerCase().includes(q));
+    }
+
+    return list;
+  }, [sectionFilter, colleges, query]);
 
   return (
     <div className="page-container admissions-page">
@@ -43,14 +70,27 @@ const Admissions = () => {
         <p className="admissions-subtitle">
           Explore top colleges and universities across India. Find the perfect institution for your academic journey.
         </p>
+        <br></br>
+        <button  class = "cta-button" src="https://techmatch-schudling.lovable.app">Book Your Session</button>
       </section>
 
       {/* Content Section */}
       <section className="content-section admissions-content">
         {/* Filter Controls (section based) */}
-        <div className="filter-row">
+        <div className={`filter-row ${searchOpen ? 'search-open' : ''}`}>
           <div className="filter-group">
-            <label className="filter-label"></label>
+            {/* Mobile/Tablet: show select dropdown. Desktop: buttons (CSS controls visibility) */}
+            <select
+              className="section-select"
+              value={sectionFilter}
+              onChange={(e) => setSectionFilter(e.target.value)}
+              aria-label="Filter sections"
+            >
+              {sections.map(s => (
+                <option key={s} value={s}>{s}</option>
+              ))}
+            </select>
+
             <div className="section-buttons">
               {sections.map(s => (
                 <button
@@ -62,6 +102,36 @@ const Admissions = () => {
                 </button>
               ))}
             </div>
+          </div>
+
+          {/* Search control - visible in all views. On small screens it toggles expansion. */}
+          <div className="search-container">
+            <button
+              className="search-toggle"
+              aria-label="Open search"
+              onClick={() => {
+                setSearchOpen(prev => {
+                  const next = !prev;
+                  // focus input when opening
+                  setTimeout(() => {
+                    if (next && searchInputRef.current) searchInputRef.current.focus();
+                  }, 120);
+                  return next;
+                });
+              }}
+            >
+              <IoSearchOutline />
+            </button>
+
+            <input
+              ref={searchInputRef}
+              type="search"
+              className="search-input"
+              placeholder="Search colleges by name"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              aria-label="Search colleges"
+            />
           </div>
         </div>
 

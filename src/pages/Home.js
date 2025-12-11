@@ -39,12 +39,12 @@ const Home = () => {
           <div className="feature-card">
             <div className="feature-icon">💡</div>
             <h3>Expert Consultation</h3>
-            <p>Leverage decades of combined expertise in IT strategy, cloud architecture, and digital innovation.</p>
+            <p>Leverage decades of combined expertise in technology,Counselling and Digital Innovation and Transformation.</p>
           </div>
           <div className="feature-card">
             <div className="feature-icon">✅</div>
             <h3>Proven Results</h3>
-            <p>Trusted by Fortune 500 companies and innovative startups. 95% client satisfaction rate.</p>
+            <p>We provide expert consultancy and drive technology transformation for Fortune 50+ Colleges and innovative startups.</p>
           </div>
           <div className="feature-card">
             <div className="feature-icon">🎯</div>
@@ -73,7 +73,7 @@ const Home = () => {
       <section className="stats-section">
         <div className="stats-grid">
           <div className="stat-card">
-            <div className="stat-number">150+</div>
+            <div className="stat-number">10+</div>
             <div className="stat-label">Projects Completed</div>
           </div>
           <div className="stat-card">
@@ -81,7 +81,7 @@ const Home = () => {
             <div className="stat-label">Enterprise Clients</div>
           </div>
           <div className="stat-card">
-            <div className="stat-number">15+</div>
+            <div className="stat-number">3+</div>
             <div className="stat-label">Years Experience</div>
           </div>
           <div className="stat-card">
@@ -93,7 +93,7 @@ const Home = () => {
 
       {/* CTA Section */}
       <section className="cta-section">
-        <h2>Ready to Transform Your Business?</h2>
+        <h2>Ready to Transform Your Journey?</h2>
         <p>Let's work together to achieve your digital transformation goals</p>
         <Link to="https://techmatch-schudling.lovable.app" className="cta-button large">
           Schedule a Consultation Today

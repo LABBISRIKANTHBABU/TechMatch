@@ -71,7 +71,8 @@ const Admissions = () => {
           Explore top colleges and universities across India. Find the perfect institution for your academic journey.
         </p>
         <br></br>
-        <button  class = "cta-button" src="https://techmatch-schudling.lovable.app">Book Your Session</button>
+        <a class = "cta-button" href="https://techmatch-schudling.lovable.app">Book Your Session</a>
+        
       </section>
 
       {/* Content Section */}

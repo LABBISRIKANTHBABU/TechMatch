@@ -156,9 +156,16 @@
     padding: 1.5rem 0.5rem 0.5rem;
   }
 
+  /* Make quick links + services appear side-by-side on small screens
+     while keeping the brand block (first section) full-width above them. */
   .footer-content {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+    grid-template-columns: repeat(2, minmax(140px, 1fr));
+    gap: 1rem 1.5rem;
+  }
+
+  /* Ensure the primary brand/about section remains full width at top */
+  .footer-content > .footer-section:first-child {
+    grid-column: 1 / -1;
   }
 
   .footer-section h3 {

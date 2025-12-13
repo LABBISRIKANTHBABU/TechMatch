@@ -70,7 +70,7 @@ export default function About() {
   const handleImageError = (e) => {
     // Replace with a generic placeholder if available, or hide.
     // Assuming you have a placeholder. If not, use e.target.style.display='none'
-    e.target.src = '/assets/avatar-placeholder.png'; 
+    e.target.src = '/assets/avatar-placeholder.png';
   };
 
   return (
@@ -85,7 +85,9 @@ export default function About() {
         <div className="tm-container tm-hero-grid">
           <div className="tm-hero-copy">
             <h1 id="about-hero-title">
-              About <span>TECH MATCH</span> Solutions
+              About
+              <br></br>
+              <span>TECH MATCH</span> Solutions
             </h1>
             <p className="tm-lead">
               We guide students from shortlisting to admission — domestic and
@@ -95,13 +97,13 @@ export default function About() {
 
             <ul className="tm-quick-list" aria-hidden="false">
               <li>
-                <strong>Admissions</strong> — Domestic & International
+                <b>Admissions</b> — Domestic & International
               </li>
               <li>
-                <strong>Counselling</strong> — 1-on-1 planning, SOP & interview prep
+                <b>Counselling</b> — 1-on-1 planning, SOP & interview prep
               </li>
               <li>
-                <strong>Projects</strong> — Digital marketing, infra, branding &
+                <b>Projects</b> — Digital marketing, infra, branding &
                 campaign support
               </li>
             </ul>
@@ -110,9 +112,9 @@ export default function About() {
               <Link to="/services" className="tm-btn tm-btn-primary large">
                 Our Services
               </Link>
-              <a href={`mailto:${ORG.email}`} className="tm-btn tm-btn-outline large">
+              <Link to='/contact' className="tm-btn tm-btn-outline large">
                 Contact Us
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -121,7 +123,7 @@ export default function About() {
             <img
               src="/assets/about-hero.jpg"
               alt="Students and counsellors collaborating in an office"
-              onError={(e) => e.target.style.display='none'} /* Hide if hero is missing, or use a placeholder */
+              onError={(e) => e.target.style.display = 'none'} /* Hide if hero is missing, or use a placeholder */
             />
           </div>
         </div>
@@ -260,7 +262,7 @@ export default function About() {
               Book a free consultation and we'll help map a practical,
               step-by-step plan.
             </p>
-             <div className="tm-cta-actions" style={{marginTop: '2rem'}}>
+            <div className="tm-cta-actions" style={{ marginTop: '2rem' }}>
               <Link className="tm-btn tm-btn-primary large" to="https://techmatch-schudling.lovable.app">
                 Book Consultation
               </Link>

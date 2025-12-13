@@ -13,7 +13,7 @@ const INITIAL_ITEMS = [
   },
   {
     id: 3,
-    image: '/assets/car3.png',
+    image: '/assets/car7.jpg',
   },
   {
     id: 4,
